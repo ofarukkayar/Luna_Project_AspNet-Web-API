@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Luna_Project_AspNet_Web_API.Data</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Luna_Project_AspNet-Web-API.Core\Luna_Project_AspNet-Web-API.Core.csproj" />
+  </ItemGroup>
+
+</Project>
