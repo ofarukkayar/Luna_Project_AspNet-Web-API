@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Luna_Project_AspNet_Web_API.Core.Repositories
 {
-    interface IRepository<TEntity> where TEntity:class
+    public interface IRepository<TEntity> where TEntity:class
     {
         Task<TEntity> GetByIdAsync(int id);
         Task<IEnumerable<TEntity>> GetAllAsync();

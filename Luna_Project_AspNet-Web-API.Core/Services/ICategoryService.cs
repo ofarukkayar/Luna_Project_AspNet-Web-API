@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Luna_Project_AspNet_Web_API.Core.Services
 {
-    interface ICategoryService:IService<Category>
+    public interface ICategoryService :IService<Category>
     {
         Task<Category> GetWithProductsByIdAsync(int categoryId);
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Luna_Project_AspNet_Web_API.Core.Services
 {
-    interface IService<TEntity> where TEntity:class
+    public interface IService<TEntity> where TEntity:class
     {
         Task<TEntity> GetByIdAsync(int id);
         Task<IEnumerable<TEntity>> GetAllAsync();

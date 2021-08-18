@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Luna_Project_AspNet_Web_API.Core.Repositories
 {
-    interface IProductRepository:IRepository<Product>
+    public interface IProductRepository :IRepository<Product>
     {
         Task<Product> GetWithCategoryByIdAsync(int productId);
     }
