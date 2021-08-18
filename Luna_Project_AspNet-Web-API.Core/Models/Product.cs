@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Luna_Project_AspNet_Web_API.Core.Models
 {
-    class Product
+    public class Product
     {
         public int Id { get; set; }
         public string Name { get; set; }

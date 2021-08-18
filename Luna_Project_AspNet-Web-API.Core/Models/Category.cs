@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Luna_Project_AspNet_Web_API.Core.Models
 {
-    class Category
+    public class Category
     {
         public Category()
         {
