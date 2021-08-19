@@ -11,8 +11,8 @@ namespace Luna_Project_AspNet_Web_API.Data.Repositories
 {
     class ProductRepository : Repository<Product>, IProductRepository
     {
-        private AppDbContext appDbContext { get => _context as AppDbContext; }
-        public ProductRepository(DbContext context): base(context)
+        private AppDbContext appDbContext { get; }
+        public ProductRepository(AppDbContext context): base(context)
         {
 
         }
