@@ -10,11 +10,9 @@ namespace Luna_Project_AspNet_Web_API.Core.Repositories
     {
         Task<TEntity> GetByIdAsync(int id);
         Task<IEnumerable<TEntity>> GetAllAsync();
-        Task<IEnumerable<TEntity>> Where(Expression<Func<TEntity, bool>> predicate); // Could be changed later on
-
+        Task<IEnumerable<TEntity>> Where(Expression<Func<TEntity, bool>> predicate);
         // category.SingleOrDefaultAsync(x=>x.name="pencil")
         Task<TEntity> SingleOrDefaultAsync(Expression<Func<TEntity, bool>> predicate);
-
         Task AddAsync(TEntity entity);
         Task AddRangeAsync(IEnumerable<TEntity> entities);
         void Remove(TEntity entity);

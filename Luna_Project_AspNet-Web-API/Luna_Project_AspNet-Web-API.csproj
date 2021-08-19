@@ -20,8 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Luna_Project_AspNet-Web-API.Core\Luna_Project_AspNet-Web-API.Core.csproj" />
-    <ProjectReference Include="..\Luna_Project_AspNet-Web-API.Data\Luna_Project_AspNet-Web-API.Data.csproj" />
     <ProjectReference Include="..\Luna_Project_AspNet-Web-API.Service\Luna_Project_AspNet-Web-API.Service.csproj" />
   </ItemGroup>
 
