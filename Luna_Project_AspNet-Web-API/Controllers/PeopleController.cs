@@ -26,6 +26,7 @@ namespace Luna_Project_AspNet_Web_API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
+            //throw new Exception("there has been an error here");
             var people = await _personService.GetAllAsync();
             return Ok(_mapper.Map<IEnumerable<Person>>(people));
         }

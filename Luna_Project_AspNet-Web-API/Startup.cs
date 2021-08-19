@@ -20,6 +20,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Luna_Project_AspNet_Web_API.Filters;
+using Microsoft.AspNetCore.Diagnostics;
+using Luna_Project_AspNet_Web_API.DTOs;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
+using Luna_Project_AspNet_Web_API.Extensions;
 
 namespace Luna_Project_AspNet_Web_API
 {
@@ -74,6 +79,8 @@ namespace Luna_Project_AspNet_Web_API
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCustomException();
 
             app.UseHttpsRedirection();
 
