@@ -19,6 +19,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Luna_Project_AspNet_Web_API.Filters;
 
 namespace Luna_Project_AspNet_Web_API
 {
@@ -36,6 +37,7 @@ namespace Luna_Project_AspNet_Web_API
         {
             services.AddAutoMapper(typeof(Startup));
 
+            services.AddScoped<ProductNotFoundFilter>();
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped(typeof(IService<>), typeof(Service<>));
             services.AddScoped<ICategoryService, CategoryService>();
@@ -54,7 +56,15 @@ namespace Luna_Project_AspNet_Web_API
             });
 
             
-            services.AddControllers();
+            services.AddControllers(o => {
+                o.Filters.Add(new ValidationFilter());
+            });
+
+            services.Configure<ApiBehaviorOptions>(options =>
+            {
+                options.SuppressModelStateInvalidFilter = true;
+
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

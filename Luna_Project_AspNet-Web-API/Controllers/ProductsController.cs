@@ -2,6 +2,7 @@
 using Luna_Project_AspNet_Web_API.Core.Models;
 using Luna_Project_AspNet_Web_API.Core.Services;
 using Luna_Project_AspNet_Web_API.DTOs;
+using Luna_Project_AspNet_Web_API.Filters;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -31,6 +32,7 @@ namespace Luna_Project_AspNet_Web_API.Controllers
             return Ok(_mapper.Map<IEnumerable<ProductDto>>(products));
         }
 
+        [ServiceFilter(typeof(ProductNotFoundFilter))]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -39,6 +41,7 @@ namespace Luna_Project_AspNet_Web_API.Controllers
             return Ok(_mapper.Map<ProductDto>(products));
         }
 
+        [ServiceFilter(typeof(ProductNotFoundFilter))]
         [HttpGet("{id}/category")]
         public async Task<IActionResult> GetWithCategoryById(int id)
         {
@@ -63,6 +66,7 @@ namespace Luna_Project_AspNet_Web_API.Controllers
             return NoContent();
         }
 
+        [ServiceFilter(typeof(ProductNotFoundFilter))]
         [HttpDelete("{id}")]
         public IActionResult Remove(int id)
         {
