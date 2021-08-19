@@ -10,7 +10,7 @@ namespace Luna_Project_AspNet_Web_API.Data.Repositories
 {
     class CategoryRepository : Repository<Category>, ICategoryRepository
     {
-        private AppDbContext _appDbContext { get; }
+        private AppDbContext _appDbContext { get => _context as AppDbContext; }
         public CategoryRepository(AppDbContext context): base(context)
         {
 

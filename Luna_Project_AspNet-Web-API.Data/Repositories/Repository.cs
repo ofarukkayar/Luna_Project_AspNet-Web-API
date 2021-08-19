@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Luna_Project_AspNet_Web_API.Data.Repositories
 {
     
-    class Repository<TEntity> : IRepository<TEntity> where TEntity : class
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         protected readonly DbContext _context;
         private readonly DbSet<TEntity> _dbSet;
