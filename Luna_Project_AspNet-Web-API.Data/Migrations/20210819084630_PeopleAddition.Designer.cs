@@ -3,14 +3,16 @@ using Luna_Project_AspNet_Web_API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Luna_Project_AspNet_Web_API.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210819084630_PeopleAddition")]
+    partial class PeopleAddition
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -73,9 +75,6 @@ namespace Luna_Project_AspNet_Web_API.Data.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("propertyCount")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.ToTable("People");
@@ -85,15 +84,13 @@ namespace Luna_Project_AspNet_Web_API.Data.Migrations
                         {
                             Id = 1,
                             Name = "Peter",
-                            SurName = "Smith",
-                            propertyCount = 0
+                            SurName = "Smith"
                         },
                         new
                         {
                             Id = 2,
                             Name = "Bob",
-                            SurName = "Herb",
-                            propertyCount = 0
+                            SurName = "Herb"
                         });
                 });
 
