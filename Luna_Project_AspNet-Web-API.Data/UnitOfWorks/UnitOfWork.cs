@@ -18,6 +18,7 @@ namespace Luna_Project_AspNet_Web_API.Data.UnitOfWorks
         public IProductRepository Products => _productRepository = _productRepository ?? new ProductRepository(_context) ;
         public ICategoryRepository Categories => _categoryRepository = _categoryRepository ?? new CategoryRepository(_context);
 
+
         public UnitOfWork(AppDbContext appDbContext)
         {
             _context = appDbContext;
