@@ -1,4 +1,4 @@
-﻿using Luna_Project_AspNet_Web_API.Core.Services;
+﻿using Luna_Project_AspNet_Web_API.Web.ApiService;
 using Luna_Project_AspNet_Web_API.Web.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -11,17 +11,17 @@ namespace Luna_Project_AspNet_Web_API.Web.Filters
 {
     public class CategoryNotFoundFilter : ActionFilterAttribute
     {
-        private readonly ICategoryService _categoryService;
-        public CategoryNotFoundFilter(ICategoryService categoryService)
+        private readonly CategoryApiService _categoryApiService;
+        public CategoryNotFoundFilter(CategoryApiService categoryApiService)
         {
-            _categoryService = categoryService;
+            _categoryApiService = categoryApiService;
         }
 
         public async override Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
         {
             int id = (int) context.ActionArguments.Values.FirstOrDefault();
 
-            var product = await _categoryService.GetByIdAsync(id);
+            var product = await _categoryApiService.GetByIdAsync(id);
 
             if(product != null)
             {
