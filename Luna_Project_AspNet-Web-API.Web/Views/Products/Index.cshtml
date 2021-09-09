@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ProductDto>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Products</h1>
+<a class="btn btn-primary mb-2" asp-action="Create">Create Product</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Stock</th>
+            <th>Price</th>
+            <th>Category ID</th>
+            <th>Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Stock</td>
+                <td>@item.Price</td>
+                <td>@item.CategoryId</td>
+                <td>
+
+                    <a asp-action="Update" asp-route-id="@item.Id">Update</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

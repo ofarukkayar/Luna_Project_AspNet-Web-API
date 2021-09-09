@@ -34,6 +34,12 @@ namespace Luna_Project_AspNet_Web_API.Web
                 opt.BaseAddress = new Uri(Configuration["baseUrl"]);
 
             });
+            services.AddHttpClient<ProductApiService>(opt =>
+            {
+
+                opt.BaseAddress = new Uri(Configuration["baseUrl"]);
+
+            });
 
             services.AddScoped<CategoryNotFoundFilter>();
 
