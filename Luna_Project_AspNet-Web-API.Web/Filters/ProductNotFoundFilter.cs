@@ -9,21 +9,21 @@ using System.Threading.Tasks;
 
 namespace Luna_Project_AspNet_Web_API.Web.Filters
 {
-    public class CategoryNotFoundFilter : ActionFilterAttribute
+    public class ProductNotFoundFilter : ActionFilterAttribute
     {
-        private readonly CategoryApiService _categoryApiService;
-        public CategoryNotFoundFilter(CategoryApiService categoryApiService)
+        private readonly ProductApiService _productApiService;
+        public ProductNotFoundFilter(ProductApiService productApiService)
         {
-            _categoryApiService = categoryApiService;
+            _productApiService = productApiService;
         }
 
         public async override Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
         {
-            int id = (int) context.ActionArguments.Values.FirstOrDefault();
+            int id = (int)context.ActionArguments.Values.FirstOrDefault();
 
-            var category = await _categoryApiService.GetByIdAsync(id);
+            var product = await _productApiService.GetByIdAsync(id);
 
-            if(category != null)
+            if (product != null)
             {
                 await next();
             }

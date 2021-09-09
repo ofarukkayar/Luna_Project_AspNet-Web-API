@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Luna_Project_AspNet_Web_API.Web.ApiService;
 using Luna_Project_AspNet_Web_API.Web.DTOs;
+using Luna_Project_AspNet_Web_API.Web.Filters;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -40,12 +41,11 @@ namespace Luna_Project_AspNet_Web_API.Web.Controllers
 
         public async Task<IActionResult> Update(int id)
         {
-            var category = await _productApiService.GetByIdAsync(id);
-            return View(_mapper.Map<ProductDto>(category));
+            var product = await _productApiService.GetByIdAsync(id);
+            return View(_mapper.Map<ProductDto>(product));
         }
 
         [HttpPost]
-
         public async Task<IActionResult> Update(ProductDto productDto)
         {
             await _productApiService.Update(productDto);
@@ -53,6 +53,7 @@ namespace Luna_Project_AspNet_Web_API.Web.Controllers
             return RedirectToAction("Index");
         }
 
+        [ServiceFilter(typeof(ProductNotFoundFilter))]
         public async Task<IActionResult> Delete(int id)
         {
             await _productApiService.Remove(id);

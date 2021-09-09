@@ -48,7 +48,6 @@ namespace Luna_Project_AspNet_Web_API.Web.Controllers
         }
 
         [HttpPost]
-
         public async Task<IActionResult> Update(CategoryDto categoryDto)
         {
             await _categoryApiService.Update(categoryDto);
